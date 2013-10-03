@@ -25,7 +25,7 @@ class Restaurant(object):
 			yield random.choice([x for x in self.menu if x.class == item_class])
 
 
-nagomi = Restaurant("Nagomi", "...", [
+nagomi = Restaurant("Nagomi", "(734) 761-5800", [
 	RegularRoll("Cucumber", 2.50, None),
 	RegularRoll("Avocado", 2.50, None),
 	RegularRoll("Black Mushroom", 2.50, None),
