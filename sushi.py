@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import random
 
 class Item(object):
 	def __init__(self, name, price, desc):
