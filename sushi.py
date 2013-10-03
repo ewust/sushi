@@ -32,19 +32,16 @@ class Restaurant(object):
 		self.phone = phone
 		self.menu = menu
 
-	def _pick_random_item(self, n=1, item_class=RegularRoll):
-		returned = 0
+	def _pick_random_item(self, item_class=RegularRoll):
 		for x in self.menu:
 			if isinstance(x, item_class) and x.required:
-				returned += 1 
-				if returned > n:
-					return
 				yield x
 		while True:
-			returned += 1 
-			if returned > n:
-				return
 			yield random.choice([x for x in self.menu if isinstance(x, item_class)])
+
+	def pick_random_item(self, n=1, item_class=RegularRoll):
+		for i in range(n):
+			yield next(self._pick_random_item(item_class))
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
