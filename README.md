@@ -1,0 +1,4 @@
+sushi
+=====
+
+sushi choosing algorithm
