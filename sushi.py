@@ -40,12 +40,12 @@ nagomi = Restaurant("Nagomi", "...", [
 	RegularRoll("Spicy Yellow Tail", 4.50, None),
 	RegularRoll("California", 3.75, None),
 	RegularRoll("Shrimp California", 4.50, None),
-	RegularRoll("Special California", 4.50, None),
+	RegularRoll("Special California", 4.50, "Crab Salad, Tempura, Cucumber, Avocado"),
 	RegularRoll("Eel", 4.00, None),
-	RegularRoll("East", 5.00, None),
-	RegularRoll("Alaskan", 5.50, None),
-	RegularRoll("Boston", 5.00, None),
-	RegularRoll("Philly Roll", 5.00, None),
+	RegularRoll("East", 5.00, "Shrimp Tempura, Cucumber, Avocado"),
+	RegularRoll("Alaskan", 5.50, "Salmon, Avocado, Cucmber"),
+	RegularRoll("Boston", 5.00, "Lettuce, Mayo, Cooked Shrimp, Cucumber, Avocado"),
+	RegularRoll("Philly Roll", 5.00, "Smoked Salmon, Cream Cheese"),
 	])
 
 
