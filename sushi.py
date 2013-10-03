@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import random
 
 class Item(object):
 	def __init__(self, name, price, desc):
@@ -6,10 +7,13 @@ class Item(object):
 		self.price = price
 		self.desc = desc
 
-class RegularRoll(Item):
+class Roll(Item):
 	pass
 
-class SpecialRoll(Item):
+class RegularRoll(Roll):
+	pass
+
+class SpecialRoll(Roll):
 	pass
 
 
@@ -22,7 +26,7 @@ class Restaurant(object):
 
 	def pick_random_item(self, n=1, item_class=RegularRoll):
 		for i in range(n):
-			yield random.choice([x for x in self.menu if x.class == item_class])
+			yield random.choice([x for x in self.menu if isinstance(x, item_class)])
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
