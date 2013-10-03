@@ -26,7 +26,6 @@ class Restaurant(object):
 
 
 nagomi = Restaurant("Nagomi", "...", [
-	RegularRoll("Roll", 5.34, "Tasty fish"),
 	RegularRoll("Cucumber", 2.50, None),
 	RegularRoll("Avocado", 2.50, None),
 	RegularRoll("Black Mushroom", 2.50, None),
