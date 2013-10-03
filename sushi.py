@@ -28,6 +28,25 @@ class Restaurant(object):
 nagomi = Restaurant("Nagomi", "...", [
 	RegularRoll("Roll", 5.34, "Tasty fish"),
 
+
+
+	SpecialRoll("Nagomi Roll", 9.00, None),
+	SpecialRoll("Michigan", 11.00, None),
+	SpecialRoll("Mexican", 9.00, None),
+	SpecialRoll("Prince", 0.00, None),
+	SpecialRoll("Princess", 0.00, None),
+	SpecialRoll("Rainbow", 0.00, None),
+	SpecialRoll("Salmon on the Beach", 0.00, None),
+	SpecialRoll("Godzilla", 0.00, None),
+	SpecialRoll("Zen", 0.00, None),
+	SpecialRoll("Red Dragon", 0.00, None),
+	SpecialRoll("Special Eel", 0.00, None),
+	SpecialRoll("Dragon Roll", 0.00, None),
+	SpecialRoll("Sunday Morning", 0.00, None),
+	SpecialRoll("Las Vegas", 0.00, None),
+	SpecialRoll("Yum Yum", 0.00, None),
+	SpecialRoll("King Kong", 0.00, None),
+	SpecialRoll("Spider Roll", 0.00, None)
 	])
 
 
