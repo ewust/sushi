@@ -3,10 +3,11 @@ import random
 import sys
 
 class Item(object):
-	def __init__(self, name, price, desc):
+	def __init__(self, name, price, desc, required=False):
 		self.name = name
 		self.price = price
 		self.desc = desc
+		self.required = required
 
 	def __str__(self):
 		return self.name
@@ -31,8 +32,18 @@ class Restaurant(object):
 		self.phone = phone
 		self.menu = menu
 
-	def pick_random_item(self, n=1, item_class=RegularRoll):
-		for i in range(n):
+	def _pick_random_item(self, n=1, item_class=RegularRoll):
+		returned = 0
+		for x in self.menu:
+			if isinstance(x, item_class) and x.required:
+				returned += 1 
+				if returned > n:
+					return
+				yield x
+		while True:
+			returned += 1 
+			if returned > n:
+				return
 			yield random.choice([x for x in self.menu if isinstance(x, item_class)])
 
 
