@@ -22,7 +22,7 @@ class Restaurant(object):
 
 	def pick_random_item(self, n=1, item_class=RegularRoll):
 		for i in range(n):
-			yield random.choice([x for x in self.menu if x.class == item_class])
+			yield random.choice([x for x in self.menu if isinstance(x, item_class))
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
