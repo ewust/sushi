@@ -7,10 +7,12 @@ class Item(object):
 		self.price = price
 		self.desc = desc
 
-class RegularRoll(Item):
+class Roll(Item)
+
+class RegularRoll(Roll):
 	pass
 
-class SpecialRoll(Item):
+class SpecialRoll(Roll):
 	pass
 
 
