@@ -1,11 +1,18 @@
 #!/usr/bin/python
 import random
+import sys
 
 class Item(object):
 	def __init__(self, name, price, desc):
 		self.name = name
 		self.price = price
 		self.desc = desc
+
+	def __str__(self):
+		return self.name
+
+	def __repr__(self):
+		return self.name
 
 class Roll(Item):
 	pass
@@ -73,8 +80,7 @@ nagomi = Restaurant("Nagomi", "(734) 761-5800", [
 
 
 if __name__=="__main__":
-	import sys
-	num_people = sys.stdin[1]
+	num_people = int(sys.argv[1])
 
-	print nagomi.pick_random_item(num_people, SpecialRoll)
-	print nagomi.pick_random_item(int(num_people * 1.5), RegularRoll)
+	print list(nagomi.pick_random_item(num_people, SpecialRoll))
+	print list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
