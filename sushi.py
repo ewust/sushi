@@ -1,4 +1,6 @@
 #!/usr/bin/python
+
+import itertools
 import random
 import sys
 
@@ -40,8 +42,8 @@ class Restaurant(object):
 			yield random.choice([x for x in self.menu if isinstance(x, item_class)])
 
 	def pick_random_item(self, n=1, item_class=RegularRoll):
-		for i in range(n):
-			yield next(self._pick_random_item(item_class))
+ 		for i,x in itertools.izip(range(n), self._pick_random_item(item_class)):
+			yield x
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
