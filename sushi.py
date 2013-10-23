@@ -91,7 +91,16 @@ nagomi = Restaurant("Nagomi", "(734) 761-5800", [
 
 
 if __name__=="__main__":
+	if len(sys.argv) != 2:
+		print "Usage: %s NUM_PEOPLE"
+		sys.exit(1)
 	num_people = int(sys.argv[1])
 
-	print list(nagomi.pick_random_item(num_people, SpecialRoll))
-	print list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
+	special_rolls = list(nagomi.pick_random_item(num_people, SpecialRoll))
+	regular_rolls = list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
+	price = sum([x.price for x in special_rolls + regular_rolls])
+	print "Special rolls:", special_rolls
+	print "Regular rolls:", regular_rolls
+	print "   Total=$%.02f" % price
+    
+    
