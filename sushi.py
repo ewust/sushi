@@ -102,5 +102,6 @@ if __name__=="__main__":
 	print "Special rolls:", special_rolls
 	print "Regular rolls:", regular_rolls
 	print "   Total=$%.02f" % price
+	print "   per person: $%.02f" % (price/int(num_people))
     
     
