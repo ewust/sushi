@@ -94,9 +94,9 @@ if __name__=="__main__":
 	if len(sys.argv) != 2:
 		print "Usage: %s NUM_PEOPLE" % sys.argv[0]
 		sys.exit(1)
-	num_people = int(sys.argv[1])
+	num_people = float(sys.argv[1])
 
-	special_rolls = list(nagomi.pick_random_item(num_people, SpecialRoll))
+	special_rolls = list(nagomi.pick_random_item(int(num_people), SpecialRoll))
 	regular_rolls = list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
 	price = sum([x.price for x in special_rolls + regular_rolls])
 	print "Special rolls:", special_rolls
