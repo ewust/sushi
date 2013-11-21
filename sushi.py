@@ -92,7 +92,7 @@ nagomi = Restaurant("Nagomi", "(734) 761-5800", [
 
 if __name__=="__main__":
 	if len(sys.argv) != 2:
-		print "Usage: %s NUM_PEOPLE"
+		print "Usage: %s NUM_PEOPLE" % sys.argv[0]
 		sys.exit(1)
 	num_people = int(sys.argv[1])
 
