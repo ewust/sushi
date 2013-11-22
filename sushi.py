@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
 import itertools
+import json
 import random
+import urllib2
 import sys
 
 class Item(object):
@@ -44,6 +46,13 @@ class Restaurant(object):
 	def pick_random_item(self, n=1, item_class=RegularRoll):
  		for i,x in itertools.izip(range(n), self._pick_random_item(item_class)):
 			yield x
+
+
+def usd_to_btc(amount):
+	f = urllib2.urlopen('https://mtgox.com/api/1/BTCUSD/ticker')
+	json_output = f.read()
+	f.close()
+	return amount / float(json.loads(json_output)['return']['last']['value'])
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
@@ -102,5 +111,8 @@ if __name__=="__main__":
 	print "Special rolls:", special_rolls
 	print "Regular rolls:", regular_rolls
 	print "   Total=$%.02f" % price
-    
+	try:
+		print "   Total=%.05f BTC" % usd_to_btc(price)
+	except:
+		print "  Total=<error connecting to mtgox>"
     
