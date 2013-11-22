@@ -48,11 +48,14 @@ class Restaurant(object):
 			yield x
 
 
-def usd_to_btc(amount):
-	f = urllib2.urlopen('https://mtgox.com/api/1/BTCUSD/ticker')
-	json_output = f.read()
-	f.close()
-	return amount / float(json.loads(json_output)['return']['last']['value'])
+def get_btc_value_usd():
+	try:
+		f = urllib2.urlopen('https://mtgox.com/api/1/BTCUSD/ticker')
+		json_output = f.read()
+		f.close()
+		return float(json.loads(json_output)['return']['last']['value'])
+	except:
+		return None
 
 
 nagomi = Restaurant("Nagomi", "(734) 761-5800", [
@@ -107,12 +110,19 @@ if __name__=="__main__":
 
 	special_rolls = list(nagomi.pick_random_item(int(num_people), SpecialRoll))
 	regular_rolls = list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
-	price = sum([x.price for x in special_rolls + regular_rolls])
+	total_price = sum([x.price for x in special_rolls + regular_rolls])
+	per_person_price = total_price / int(num_people)
+	
 	print "Special rolls:", special_rolls
 	print "Regular rolls:", regular_rolls
-	print "   Total=$%.02f" % price
-	try:
-		print "   Total=%.05f BTC" % usd_to_btc(price)
-	except:
-		print "  Total=<error connecting to mtgox>"
-    
+	print "   Total=$%.02f" % total_price
+	print "   per person: $%.02f" % per_person_price
+	
+	# Get price in bitcoins
+	btc_value = get_btc_value_usd()
+	if btc_value == None:
+		print "<error connecting to mtgox>"
+	else:
+		print "   Total=%.05f BTC" % (total_price / btc_value)
+		print "   per person=%.05f BTC" % (per_person_price / btc_value)
+ 
