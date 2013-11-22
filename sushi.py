@@ -112,13 +112,13 @@ if __name__=="__main__":
 	regular_rolls = list(nagomi.pick_random_item(int(num_people * 1.5), RegularRoll))
 	total_price = sum([x.price for x in special_rolls + regular_rolls])
 	per_person_price = total_price / int(num_people)
-	
+
 	print "Special rolls:", special_rolls
 	print "Regular rolls:", regular_rolls
 	print
 	print "Total: $%.02f" % total_price
 	print "   per person: $%.02f" % per_person_price
-	
+
 	# Get price in bitcoins
 	btc_value = get_btc_value_usd()
 	if btc_value == None:
@@ -126,4 +126,4 @@ if __name__=="__main__":
 	else:
 		print "Total: %.05f BTC" % (total_price / btc_value)
 		print "   per person: %.05f BTC" % (per_person_price / btc_value)
- 
+
